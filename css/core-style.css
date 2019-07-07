@@ -625,6 +625,11 @@ img {
     background-color: transparent;
 }
 
+.navbar-brand img {
+    width: 100px;
+    height: 100px;
+}
+
 /* :: 5.0 Welcome Area CSS */
 
 .hero-area,

@@ -100,7 +100,7 @@
         padding: 5px 15px
     }
     .navbar-brand {
-        max-width: 100px
+        max-width: 100px;
     }
     .header-search-form form input {
         width: 100%;
