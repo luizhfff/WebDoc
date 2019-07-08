@@ -1,4 +1,9 @@
-// Node Server
+/**
+ * Filename: app.js
+ * Author: Luiz Henrique Ferreira Facanha Filho
+ * Student ID: 100320002
+ * CPSC-2261 - Web Technology Course Project (WebDoc)
+*/
 
 var fs = require("fs");
 var express = require('express');
