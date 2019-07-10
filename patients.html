@@ -124,7 +124,7 @@
                     </div>
                     <div class="form-group">
                       <label for="gender">Gender</label>
-                        <select name="gender" class="form-control">
+                        <select name="gender" id="gender" class="form-control">
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
@@ -134,7 +134,7 @@
                       <input type="number" name="age" id="age" class="form-control" placeholder="Ex.: 19">
                     </div>
                     <div>
-                        <button class="btn btn-primary" id="submitNewPatient">Submit</button>
+                        <button class="btn btn-primary" id="submitNewPatient" name="submitNewPatient">Submit</button>
                     </div>
                 </div>
 
@@ -201,6 +201,31 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Scripts js -->
+    <script src="js/scripts.js"></script>
+
+    {% comment %} <script> 
+        $(document).ready( () => {
+    
+            // On click function
+            $("submitNewPatient").click(() => { 
+                
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://' + document.domain + ':8010/submitNewPatient',
+                    data: {
+                        fname: JSON.stringify($('fname').val()),
+                        lname: JSON.stringify($('lname').val()),
+                        age: JSON.stringify($('age').val()),
+                        gender: JSON.stringify($('gender').val())
+                    }
+                });
+                console.log("onclick called!")
+            });
+
+        });
+    
+    </script> {% endcomment %}
 
 </body>
 

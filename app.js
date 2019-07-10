@@ -10,6 +10,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var port = 8010;
+var db = require('./DB');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,8 +25,10 @@ app.put('/', (request, response) =>{
 	
 });
 
-// POST routes
-// app.post('', (request, response) =>{
-    
+// Route for creating new patient on DB
+app.post('/submitNewPatient', (request, response) =>{
+    console.log(`Patient: ${request.body.fname} ${request.body.lname} | Age: ${request.body.age} | Gender: ${request.body.gender} `);
+
+    db.newPatient(request,response);
 		
-// });
+});
