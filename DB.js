@@ -26,7 +26,7 @@ function requestData(request, response) {
         }
         console.log(rows);
     });
-    connection.end();
+    //connection.end();
 }
 
 // Method to register a new patient on DB
@@ -42,14 +42,30 @@ function newPatient(request, response) {
     let query = `INSERT INTO Patients (Fname, Lname, Gender, Age) VALUES  ? `;
     console.log(`Query: ${query}`);
 
-    connection.query(query, [data], (err, rows) => {
+    connection.query(query, [data], (err, results) => {
         if (err) {
             return console.error(err.message);
         }
-        console.log(rows);
-        console.log('Row inserted:' + rows.affectedRows);
+        //console.log(results);
+        console.log('Row inserted:' + results.affectedRows);
+        response.send(JSON.stringify(results));
     });
-    connection.end();
+    //connection.end();
+}
+
+function searchPatient(request, response) {
+
+    let query = ``;
+
+    connection.query(query, [data], (err, results) => {
+        if (err) {
+            return console.error(err.message);
+        }
+        //console.log(results);
+        console.log('Row inserted:' + results.affectedRows);
+        response.send(JSON.stringify(results));
+    });
+
 }
 
 // Exporting modules to be used by the Application

@@ -108,12 +108,81 @@
         </div>
     </section>
 
-
     <section class="medica-services-area section_padding_100">
         <div class="container">
             <div class="row">
+                
+                <!-- Button trigger modal Search for Patient-->
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchPatientModal">Search Patient</button>
+                </div>
+
+                <!-- Button trigger modal Add new patient -->
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#regNewPatientModal">Register New Patient</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Search patient Modal -->
+    <div class="modal fade" id="searchPatientModal" tabindex="-1" role="dialog" aria-labelledby="searchPatientModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchPatientModal">Search Patient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="searchPatient">
+                    <div class="form-group">
+                      <label for="fnameSearch">First Name</label>
+                      <input type="text" name="fnameSearch" id="fnameSearch" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                      <label for="lnameSearch">Last Name</label>
+                      <input type="text" name="lnameSearch" id="lnameSearch" class="form-control" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                      <label for="genderSearch">Gender</label>
+                        <select name="genderSearch" id="genderSearch" class="form-control">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="B">Both</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="ageSearchMin">Minimum Age</label>
+                      <input type="number" name="ageSearchMin" id="ageSearchMin" class="form-control" placeholder="Ex.: 19">
+                      <label for="ageSearchMax">Maximum Age</label>
+                      <input type="number" name="ageSearchMax" id="ageSearchMax" class="form-control" placeholder="Ex.: 19">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" id="searchPatient" name="searchPatient">Add Patient</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Add patient Modal -->
+    <div class="modal fade" id="regNewPatientModal" tabindex="-1" role="dialog" aria-labelledby="regNewPatientModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="regNewPatientModal">Add New Patient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
                 <div id="addPatient">
-                    <h3>Register New Patient</h3>
                     <div class="form-group">
                       <label for="fname">First Name</label>
                       <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name">
@@ -133,10 +202,26 @@
                       <label for="age">Age</label>
                       <input type="number" name="age" id="age" class="form-control" placeholder="Ex.: 19">
                     </div>
-                    <div>
-                        <button class="btn btn-primary" id="submitNewPatient" name="submitNewPatient">Submit</button>
-                    </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" id="submitNewPatient" name="submitNewPatient">Add Patient</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <section class="medica-services-area section_padding_100">
+        <div class="container">
+            <div class="row">
+                
+                <table class="table" id="patientsTable">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
 
             </div>
         </div>
@@ -203,29 +288,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/active.js"></script>
     <!-- Scripts js -->
     <script src="js/scripts.js"></script>
-
-    {% comment %} <script> 
-        $(document).ready( () => {
-    
-            // On click function
-            $("submitNewPatient").click(() => { 
-                
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://' + document.domain + ':8010/submitNewPatient',
-                    data: {
-                        fname: JSON.stringify($('fname').val()),
-                        lname: JSON.stringify($('lname').val()),
-                        age: JSON.stringify($('age').val()),
-                        gender: JSON.stringify($('gender').val())
-                    }
-                });
-                console.log("onclick called!")
-            });
-
-        });
-    
-    </script> {% endcomment %}
 
 </body>
 
