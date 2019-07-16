@@ -19,12 +19,13 @@ var connection = mysql.createConnection({
 connection.connect();
 
 // Method to request data from DB
-function requestData(request, response) {
-    connection.query('SELECT * FROM Patients', (err, rows) => {
+function getAllPatientsNamesSorted(request, response) {
+    connection.query('SELECT ID, Fname, Lname FROM Patients ORDER BY Fname, Lname ASC', (err, results) => {
         if (err) {
             throw err;
         }
-        console.log(rows);
+        console.log(JSON.stringify(results));
+        response.send(JSON.stringify(results));
     });
     //connection.end();
 }
@@ -69,6 +70,6 @@ function searchPatient(request, response) {
 }
 
 // Exporting modules to be used by the Application
-exports.requestData = requestData;
+exports.getAllPatientsNamesSorted = getAllPatientsNamesSorted;
 exports.newPatient = newPatient;
 

@@ -32,3 +32,10 @@ app.post('/submitNewPatient', (request, response) =>{
     db.newPatient(request,response);
 		
 });
+
+// Route for get all existent patient on DB
+app.post('/getAllPatientsNamesSorted', (request, response) =>{
+
+    db.getAllPatientsNamesSorted(request,response);
+		
+});
