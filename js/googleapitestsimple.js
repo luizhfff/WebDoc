@@ -10,14 +10,11 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
-function createEvent(event, calendarID) {
-  fs.readFile('./js/credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse(content), insertEvent(JSON.parse(content),calendarID, event));
-  });
-
-}
+fs.readFile('credentials.json', (err, content) => {
+if (err) return console.log('Error loading client secret file:', err);
+// Authorize a client with credentials, then call the Google Calendar API.
+authorize(JSON.parse(content), insertEvent);
+});
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -98,12 +95,32 @@ function listEvents(auth) {
 
 
 // Function for creating event
-function insertEvent(auth, calendarID, event) {
+function insertEvent(auth) {
   var calendar = google.calendar({version: 'v3', auth});
+  var event = {
+    'summary': 'Event Test 2',
+    'location': 'Vancouver',
+    'description': 'Medical Appointment',
+    'start': {
+      'date': '2019-08-31',
+      'timeZone': 'Canada/Pacific',
+    },
+    'end': {
+        'date': '2019-08-31',
+        'timeZone': 'Canada/Pacific',
+    },
+    'reminders': {
+      'useDefault': false,
+      'overrides': [
+        {'method': 'email', 'minutes': 24 * 60},
+        {'method': 'popup', 'minutes': 10},
+      ],
+    },
+  };
 
   calendar.events.insert({
     auth: auth,
-    calendarId: calendarID,
+    calendarId: 'entkh4b3cordgtdslbclill8a8@group.calendar.google.com',
     resource: event,
   }, function(err, event) {
     if (err) {
@@ -114,5 +131,3 @@ function insertEvent(auth, calendarID, event) {
   });
 
 }
-
-exports.createEvent = createEvent;

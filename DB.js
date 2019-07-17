@@ -30,6 +30,18 @@ function getAllPatientsNamesSorted(request, response) {
     //connection.end();
 }
 
+// Method to request data from DB
+function getAllDoctorsNamesSorted(request, response) {
+    connection.query('SELECT ID, Fname, Lname, Speciality FROM Physicians ORDER BY Fname, Lname, Speciality ASC', (err, results) => {
+        if (err) {
+            throw err;
+        }
+        console.log(JSON.stringify(results));
+        response.send(JSON.stringify(results));
+    });
+    //connection.end();
+}
+
 // Method to register a new patient on DB
 function newPatient(request, response) {
     let values = [];
@@ -54,11 +66,12 @@ function newPatient(request, response) {
     //connection.end();
 }
 
-function searchPatient(request, response) {
+function searchByID(request, response) {
 
-    let query = ``;
+    let patientID = request.body.patientID;
+    let query = `SELECT * from Patients WHERE ID=?`;
 
-    connection.query(query, [data], (err, results) => {
+    connection.query(query, patientID, (err, results) => {
         if (err) {
             return console.error(err.message);
         }
@@ -72,4 +85,6 @@ function searchPatient(request, response) {
 // Exporting modules to be used by the Application
 exports.getAllPatientsNamesSorted = getAllPatientsNamesSorted;
 exports.newPatient = newPatient;
+exports.searchByID = searchByID;
+exports.getAllDoctorsNamesSorted = getAllDoctorsNamesSorted;
 
