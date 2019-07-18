@@ -141,7 +141,7 @@ $(document).ready( () => {
         let data = JSON.parse(dataRequested);
 
         $.each(data, (key, row) => {
-            $("#appointmentPatient").append(`<option value='${row.ID}'> ${row.Fname} ${row.Lname}</option>`);
+            $("#appointmentPatient").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname}</option>`);
         });
 
     }
@@ -150,7 +150,7 @@ $(document).ready( () => {
         let data = JSON.parse(dataRequested);
 
         $.each(data, (key, row) => {
-            $("#appointmentDoctor").append(`<option value='${row.ID}'> ${row.Fname} ${row.Lname} | ${row.Speciality}</option>`);
+            $("#appointmentDoctor").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname} | ${row.Speciality}</option>`);
         });
 
     }
@@ -193,9 +193,9 @@ $(document).ready( () => {
           };
     }
     
-    $('#appointmentDate').datepicker({
-        format: "dd/mm/yyyy"
-    });
+    // $('#appointmentDate').datepicker({
+    //     format: "YYYY-MM-DD"
+    // });
 
     function populatePatientsTable(dataRequested) {
         let data = JSON.parse(dataRequested);

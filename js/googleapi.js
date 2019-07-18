@@ -9,14 +9,45 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // time.
 const TOKEN_PATH = 'token.json';
 
-// Load client secrets from a local file.
-function createEvent(event, calendarID) {
-  fs.readFile('./js/credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse(content), insertEvent(JSON.parse(content),calendarID, event));
-  });
+var event = {
+  'summary': '',
+  'location': 'Vancouver',
+  'description': 'Medical Appointment',
+  'start': {
+    'date': '',
+    'timeZone': 'Canada/Pacific',
+  },
+  'end': {
+      'date': '',
+      'timeZone': 'Canada/Pacific',
+  },
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ]
+  }
+}
 
+var calendarID = "";
+
+function createEvent(eventPassed, calendarIDPassed) {
+  event = eventPassed;
+  calendarID = calendarIDPassed;
+  
+  readCredentialsAndCallBack();
+}
+
+
+// Load client secrets from a local file.
+function readCredentialsAndCallBack() {
+  fs.readFile('./js/credentials.json', (err, content) => {
+    if (err)
+      return console.log('Error loading client secret file:', err);
+    // Authorize a client with credentials, then call the Google Calendar API.
+    authorize(JSON.parse(content), insertEvent);
+  });
 }
 
 /**
@@ -98,7 +129,7 @@ function listEvents(auth) {
 
 
 // Function for creating event
-function insertEvent(auth, calendarID, event) {
+function insertEvent(auth) {
   var calendar = google.calendar({version: 'v3', auth});
 
   calendar.events.insert({
@@ -110,7 +141,7 @@ function insertEvent(auth, calendarID, event) {
       console.log('There was an error contacting the Calendar service: ' + err);
       return;
     }
-    console.log('Event created: %s', event.htmlLink);
+    console.log(`Event created successfuly! | CalendarID: ${calendarID} | Event: ${event.summary}`);
   });
 
 }

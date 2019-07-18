@@ -127,17 +127,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <div class='input-group date' id='appointmentDate'>
-                                <label class="col-7" for="appointmentDate">Appointment Date</label>
-                                <input type='text' class="form-control col-4" id="appointmentDate" data-provide="datepicker" placeholder="00/00/0000">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                            <div class='input-group date'>
+                                <label class="col-12" for="appointmentDate">Appointment Date</label>
+                                <input type='date' class="form-control col-12" id="appointmentDate" placeholder="YYYY-MM-DD">
                             </div>
                         </div>
                         <div class="form-group">
                                 <label class="col-12" for="appointmentTimeStart">Start Time</label>
-                                <select class="custom-select col-4" id="appointmentTimeStart appointmentTimeStartHour">
+                                <select class="custom-select col-4" id="appointmentTimeStartHour">
                                     <option selected>Hour...</option>
                                     <option value="07">07</option>
                                     <option value="08">08</option>
@@ -157,7 +154,7 @@
                                     <option value="22">22</option>
                                 </select>
 
-                                <select class="custom-select col-4" id="appointmentTimeStart appointmentTimeStartMinute">
+                                <select class="custom-select col-4" id="appointmentTimeStartMinute">
                                     <option selected>Minute...</option>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
@@ -167,7 +164,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-12" for="appointmentTimeEnd">End Time</label>
-                                <select class="custom-select col-4" id="appointmentTimeEnd appointmentTimeEndHour">
+                                <select class="custom-select col-4" id="appointmentTimeEndHour">
                                     <option selected>Hour...</option>
                                     <option value="07">07</option>
                                     <option value="08">08</option>
@@ -187,7 +184,7 @@
                                     <option value="22">22</option>
                                 </select>
 
-                               <select class="custom-select col-4" id="appointmentTimeEnd appointmentTimeEndMinute">
+                               <select class="custom-select col-4" id="appointmentTimeEndMinute">
                                     <option selected>Minute...</option>
                                     <option value="00">00</option>
                                     <option value="15">15</option>

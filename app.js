@@ -58,16 +58,19 @@ app.post('/searchByID', (request, response) =>{
 // Creating appointment WebDoc Appointments Calendar
 app.post('/createSimpleAppointment', (request, response) =>{
 
+  let startDateTime = `${request.body.appointmentDate}T${request.body.startTimeHour}:${request.body.startTimeMinute}:00`;
+  let endDateTime = `${request.body.appointmentDate}T${request.body.endTimeHour}:${request.body.endTimeMinute}:00`;
+
     let event = {
-        'summary': request.body.doctorID + " | " + request.body.appointmentDate + " | " + request.body.startTimeHour + " | " + request.body.startTimeMinute + " | " + request.body.endTimeHour + " | " + request.body.endTimeMinute,
+        'summary': `Patient: ${request.body.patientID} | Doctor: ${request.body.doctorID} | Date: ${request.body.appointmentDate} | Start DateTime: ${startDateTime} | End DateTime: ${endDateTime} `,
         'location': 'Vancouver',
         'description': 'Medical Appointment',
         'start': {
-          'date': request.body.appointmentDate,
+          'dateTime': startDateTime,
           'timeZone': 'Canada/Pacific',
         },
         'end': {
-          'date': request.body.appointmentDate,
+          'dateTime': endDateTime,
           'timeZone': 'Canada/Pacific',
         },
         'reminders': {
@@ -78,7 +81,8 @@ app.post('/createSimpleAppointment', (request, response) =>{
           ],
         },
       };
-
+      console.log(`startDateTime: ${startDateTime}`);
+      console.log(`endDateTime: ${endDateTime}`);
     googleapi.createEvent(event, 'entkh4b3cordgtdslbclill8a8@group.calendar.google.com');
         
 
