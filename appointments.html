@@ -75,11 +75,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="patients.html">Patients</a>
                                         </li>
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="calendar.html">Calendar</a>
-                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="physicians.html">Physicians</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="appointments.html">Appointments</a>
                                         </li>
                                         <li class="nav-item ">
                                             <a class="nav-link" href="exams.html">Exams</a>
@@ -109,8 +109,8 @@
         </div>
     </section>
 
-    <section>
-        <div class="container row align-items-center">
+    <section class="container align-items-center section_padding_50">
+        <div class="col-12 row">
             <div class="col-4">
                 <div id="newAppointment">
                         <h3>Create New Appointment</h3>
@@ -197,7 +197,7 @@
                         </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-7">
                 <div id="showCalendar">
                     <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23A79B8E&amp;ctz=America%2FVancouver&amp;showTitle=0&amp;showNav=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=1&amp;mode=MONTH&amp;src=ZW50a2g0YjNjb3JkZ3Rkc2xiY2xpbGw4YThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                 </div>
@@ -245,22 +245,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- ***** Footer Area End ***** -->
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
     <!-- Plugins js -->
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <!-- DataTables Plugins js -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <!-- Scripts js -->
     <script src="js/scripts.js"></script>
 

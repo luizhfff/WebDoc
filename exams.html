@@ -76,10 +76,10 @@
                                             <a class="nav-link" href="patients.html">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="calendar.html">Calendar</a>
+                                            <a class="nav-link" href="physicians.html">Physicians</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="physicians.html">Physicians</a>
+                                            <a class="nav-link" href="appointments.html">Appointments</a>
                                         </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" href="exams.html">Exams</a>
@@ -110,50 +110,95 @@
         </div>
     </section>
 
-    <section>
-        <div class="container row align-items-center">
+    <section class="container align-items-center section_padding_50">
+        <div class="col-12 row">
             <div class="col-4">
                 <div id="newExamAppointment">
                         <h3>Create New Appointment</h3>
                         <div class="form-group">
-                            <label for="selectPatient">Patient</label>
-                            <select class="custom-select" id="selectPatient">
+                            <label for="appointmentExamPatient">Patient</label>
+                            <select class="custom-select" id="appointmentExamPatient">
                                 <option selected>Choose Patient...</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <div class='input-group date' id='appointmentDate'>
-                                <label for="appointmentDate">Appointment Date</label>
-                                <input type='text' class="form-control" id="appointmentDate" data-provide="datepicker">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                            <label for="appointmentExamType">Doctor</label>
+                            <select class="custom-select" id="appointmentExamType">
+                                <option selected>Choose Exam...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class='input-group date'>
+                                <label class="col-12" for="appointmentExamDate">Appointment Date</label>
+                                <input type='date' class="form-control col-12" id="appointmentExamDate" placeholder="YYYY-MM-DD">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class='input-group date' id='appointmentTimeB' data-target-input="nearest">
-                                <label for="appointmentTimeB">Start Time</label>
-                                <input type='text' class="form-control datetimepicker-input" id="appointmentTimeB" data-target="#appointmentTimeB">
-                                <div class="input-group-append" data-target="#appointmentTimeB" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-                                </div>
-                            </div>
+                                <label class="col-12" for="appointmentExamTimeStart">Start Time</label>
+                                <select class="custom-select col-4" id="appointmentExamTimeStartHour">
+                                    <option selected>Hour...</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                </select>
+
+                                <select class="custom-select col-4" id="appointmentExamTimeStartMinute">
+                                    <option selected>Minute...</option>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
                         </div>
                         <div class="form-group">
-                            <div class='input-group date' id='appointmentTimeE'>
-                                <label for="appointmentTimeE">End Time</label>
-                                <input type='text' class="form-control timepicker" id="appointmentTimeE" data-provide="timepicker">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-time"></span>
-                                </span>
-                            </div>
+                            <label class="col-12" for="appointmentExamTimeEnd">End Time</label>
+                                <select class="custom-select col-4" id="appointmentTimeEndHour">
+                                    <option selected>Hour...</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                </select>
+
+                               <select class="custom-select col-4" id="appointmentExamTimeEndMinute">
+                                    <option selected>Minute...</option>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
                         </div>
                         <div>
-                            <button class="btn btn-primary" id="createAppointment" name="createAppointment">Create New Appointment</button>
+                            <button class="btn btn-primary" id="createExamAppointment" name="createExamAppointment">Schedule New Exam</button>
                         </div>
-                </div>
+                    </div>
             </div>
-            <div class="col-8">
+            <div class="col-7">
                 <div id="showCalendar">
                     <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23A79B8E&amp;ctz=America%2FVancouver&amp;showTitle=0&amp;showNav=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=1&amp;mode=MONTH&amp;src=djMwaWNoNTRuNjl2cnE4dDJoM2xjNXNmbWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23616161" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                 </div>
@@ -202,22 +247,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- ***** Footer Area End ***** -->
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
     <!-- Plugins js -->
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
-    <script src="js/map-active.js"></script>
     <!-- DataTables Plugins js -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <!-- Scripts js -->
     <script src="js/scripts.js"></script>
 

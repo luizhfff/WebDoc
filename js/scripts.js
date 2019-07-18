@@ -23,19 +23,7 @@ $(document).ready( () => {
         success: populateDoctors
     });
 
-    // Utilizing dataTables plugin
-    $('#physiciansTable').DataTable({
-        "searching": true,
-        "search": {
-            "smart": true
-          }
-    });
-    $('#patientsTable').DataTable({
-        "searching": true,
-        "search": {
-            "smart": true
-          }
-    });
+    
     
     // On click function add new patient
     $("#submitNewPatient").click(() => { 
@@ -48,7 +36,8 @@ $(document).ready( () => {
                 lname: $('#lname').val(),
                 age: $('#age').val(),
                 gender: $('#gender').val(),
-            }
+            },
+            success: populatePatients
         });
         $("#regNewPatientModal").modal("toggle");
     });
@@ -71,18 +60,19 @@ $(document).ready( () => {
         $("#searchPatientModal").modal("toggle");
     });
 
-    // Get full patient data for creating appointment on google calendar (UNFINISHED)
-    // $("#createAppointment").click(() => {
-
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: 'http://' + document.domain + ':8010/searchByID',
-    //         data: {
-    //             patientID: $("#appointmentPatient").val()
-    //         },
-    //         success: createAppointment
-    //     });
-    // });
+    // On click function delete patient
+    $("#deletePatient").click(() => { 
+        
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://' + document.domain + ':8010/deletePatient',
+            data: {
+                patientID: $('#deleteID').val(),
+            },
+            success: populatePatients
+        });
+        $("#deletePatientModal").modal("toggle");
+    });
 
     //Creating new event using google api
     $("#createAppointment").click(() => {
@@ -266,11 +256,19 @@ $(document).ready( () => {
     function populateDoctors(dataRequested) {
         populateSelectionDoctors(dataRequested);
         populateDoctorsTable(dataRequested);
+        
+        $('#physiciansTable').DataTable({
+            "searching": true
+        });
     }
 
     function populatePatients(dataRequested) {
         populatePatientsTable(dataRequested);
         populateSelectionPatients(dataRequested);
+
+        $('#patientsTable').DataTable({
+            "searching": true
+        });
     }
 
 });

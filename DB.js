@@ -9,22 +9,21 @@
 const mysql = require('mysql');
 
 // Creating DB connection
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
+    connectionLimit : 100,
     host: 'gfsolucoesti.com.br',
     user: 'gfsol916_doc_db',
     password: 'doc_db_2019',
     database: 'gfsol916_doc_db',
     port: 3306
 });
-connection.connect();
+//connection.connect();
 
 // Method to request data from DB
 function getAllPatientsNamesSorted(request, response) {
-    connection.query('SELECT ID, Fname, Lname FROM Patients ORDER BY Fname, Lname ASC', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(JSON.stringify(results));
+    pool.query('SELECT ID, Fname, Lname, Gender, Age FROM Patients ORDER BY Fname, Lname ASC', (error, results) => {
+        if (error) throw error;
+        //console.log(JSON.stringify(results));
         response.send(JSON.stringify(results));
     });
     //connection.end();
@@ -32,11 +31,9 @@ function getAllPatientsNamesSorted(request, response) {
 
 // Method to request data from DB
 function getAllDoctorsNamesSorted(request, response) {
-    connection.query('SELECT ID, Fname, Lname, Speciality FROM Physicians ORDER BY Fname, Lname, Speciality ASC', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(JSON.stringify(results));
+    pool.query('SELECT ID, Fname, Lname, Speciality FROM Physicians ORDER BY Fname, Lname, Speciality ASC', (error, results) => {
+        if (error) throw error;
+        //console.log(JSON.stringify(results));
         response.send(JSON.stringify(results));
     });
     //connection.end();
@@ -55,10 +52,8 @@ function newPatient(request, response) {
     let query = `INSERT INTO Patients (Fname, Lname, Gender, Age) VALUES  ? `;
     console.log(`Query: ${query}`);
 
-    connection.query(query, [data], (err, results) => {
-        if (err) {
-            return console.error(err.message);
-        }
+    pool.query(query, [data], (error, results) => {
+        if (error) throw error;
         //console.log(results);
         console.log('Row inserted:' + results.affectedRows);
         response.send(JSON.stringify(results));
@@ -71,10 +66,8 @@ function searchByID(request, response) {
     let patientID = request.body.patientID;
     let query = `SELECT * from Patients WHERE ID=?`;
 
-    connection.query(query, patientID, (err, results) => {
-        if (err) {
-            return console.error(err.message);
-        }
+    pool.query(query, patientID, (error, results) => {
+        if (error) throw error;
         //console.log(results);
         console.log('Row inserted:' + results.affectedRows);
         response.send(JSON.stringify(results));
@@ -82,9 +75,23 @@ function searchByID(request, response) {
 
 }
 
+function deletePatient(request, response) {
+    let patientID = request.body.patientID;
+    let query = `DELETE FROM Patients WHERE ID=? `;
+
+    pool.query(query, patientID, (error, results) => {
+        if (error) throw error;
+        //console.log(results);
+        console.log('Row inserted:' + results.affectedRows);
+        response.send(JSON.stringify(results));
+    });
+    //connection.end();
+}
+
 // Exporting modules to be used by the Application
 exports.getAllPatientsNamesSorted = getAllPatientsNamesSorted;
 exports.newPatient = newPatient;
 exports.searchByID = searchByID;
 exports.getAllDoctorsNamesSorted = getAllDoctorsNamesSorted;
+exports.deletePatient = deletePatient;
 

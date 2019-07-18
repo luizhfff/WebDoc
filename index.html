@@ -76,10 +76,10 @@
                                             <a class="nav-link" href="patients.html">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="calendar.html">Calendar</a>
+                                            <a class="nav-link" href="physicians.html">Physicians</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="physicians.html">Physicians</a>
+                                            <a class="nav-link" href="appointments.html">Appointments</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="exams.html">Exams</a>
@@ -96,213 +96,35 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Hero Area Start ***** -->
-    <section class="hero-area">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide height-800 bg-img" style="background-image: url(img/bg-img/hero1.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">We provide top <br>medical services</h2>
-                                <h5 data-animation="fadeInUp" data-delay="400ms">More than 30 professionals</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide height-800 bg-img" style="background-image: url(img/bg-img/hero1.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">We provide top <br>medical services</h2>
-                                <h5 data-animation="fadeInUp" data-delay="400ms">More than 30 professionals</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide height-800 bg-img" style="background-image: url(img/bg-img/hero1.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">We provide top <br>medical services</h2>
-                                <h5 data-animation="fadeInUp" data-delay="400ms">More than 30 professionals</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Hero Area End ***** -->
-
     <!-- ***** About Us Area Start ***** -->
-    <section class="medica-about-us-area">
+    <section class="medica-services-area section_padding_100 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/service.jpg);">
         <!-- Card Area -->
         <div class="medica-card-area">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="medica-emergency-card wow fadeInUp" data-wow-delay="0.2s">
-                            <h5>For Emergencies</h5>
-                            <h4>+0080 954 4557 884</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis id explicabo quam quo nisi nihil ducimus, possimus. Lorem ipsum dolor sit amet.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="medica-doctors-card wow fadeInUp" data-wow-delay="0.4s">
-                            <h5>The Doctors</h5>
-                            <p>Sit amet, consectetur adipisicing elit. Perferendis id explicabo quam quo nisi nihil ducimus, possimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
+                                     
                     <div class="col-12 col-lg-4">
                         <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
-                            <h5>Book an apppointment</h5>
-                            <form action="#" method="post">
+                            <h5>Login</h5>
+                            <form action="/login" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name">
+                                    <input type="text" class="form-control text-white" name="username" id="username" placeholder="username">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="number" id="number" placeholder="Phone">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="password">
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
-                                </div>
-                                <button type="submit" class="btn medica-btn mt-15">Make an Appointment</button>
+                                
+                                <input type="submit" value="Log In"/>
                             </form>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
         
     </section>
     <!-- ***** About Us Area End ***** -->
-
-    <!-- ***** Services Area Start ***** -->
-    <section class="medica-services-area section_padding_100 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/service.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section_heading white-heading">
-                        <img src="img/icons/hospital2.png" alt="">
-                        <h2>Our Services</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="img/icons/hospital.png" alt="">
-                        <h5>Ambulatory Care</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area wow fadeInUp" data-wow-delay="0.3s">
-                        <img src="img/icons/blood.png" alt="">
-                        <h5>Laboratory</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area wow fadeInUp" data-wow-delay="0.4s">
-                        <img src="img/icons/ambulance.png" alt="">
-                        <h5>Ambulance Service</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/icons/nuclear.png" alt="">
-                        <h5>Radiology</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-service-area wow fadeInUp" data-wow-delay="0.6s">
-                        <img src="img/icons/emergency-call.png" alt="">
-                        <h5>Emergency Care</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="single-service-area">
-                        <img src="img/icons/medicine.png" alt="">
-                        <h5>Pharmacy</h5>
-                        <p>Phasellus at nunc orci. Donec ipsum metus, pharetr a quis nunc sit amet, maximus vehicula nibh.</p>
-                    </div>
-                </div>
-
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.9s">
-                    <a href="#" class="btn medica-btn">See All Services</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Services Area End ***** -->
-
-    
-
-    
-
-    <!-- ***** CTA Area Start ***** -->
-    <section class="medica-call-to-action section_padding_50_0 gradient-background">
-        <div class="container">
-            <div class="row">
-                <!-- Single Cool Fact-->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact wow fadeIn" data-wow-delay="0.2s">
-                        <div class="counter-area">
-                            <h2><span class="counter">8723</span></h2>
-                            <h6>Pacients since opening</h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Cool Fact-->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact wow fadeIn" data-wow-delay="0.6s">
-                        <div class="counter-area">
-                            <h2><span class="counter">120</span></h2>
-                            <h6>Specialist Doctors </h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Cool Fact-->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact wow fadeIn" data-wow-delay="1s">
-                        <div class="counter-area">
-                            <h2><span class="counter">12</span></h2>
-                            <h6>Years of Experience</h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Cool Fact-->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-cool-fact wow fadeIn" data-wow-delay="1.4s">
-                        <div class="counter-area">
-                            <h2><span class="counter">83</span></h2>
-                            <h6>Pro Bono Works</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** CTA Area End ***** -->
-
-    
-
-    
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
@@ -343,19 +165,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- ***** Footer Area End ***** -->
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
     <!-- Plugins js -->
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- DataTables Plugins js -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <!-- Scripts js -->
     <script src="js/scripts.js"></script>
 

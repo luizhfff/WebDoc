@@ -8,23 +8,61 @@
 var fs = require("fs");
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var app = express();
 var port = 8010;
 var db = require('./DB');
 var googleapi = require("./js/googleapi");
 
+// Using passport module
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
+
+
+passport.use(new LocalStrategy(
+  {
+    usernameField: 'lhfff',
+    passwordField: 'langaraluiz'
+  },
+  
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 var server = app.listen(port, () => {
     console.log('server is listening on port', server.address().port);
 });
 
+
+
 // Root route for the WebApp
 app.put('/', (request, response) =>{
 	
 });
+
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
 
 // Route for creating new patient on DB
 app.post('/submitNewPatient', (request, response) =>{
@@ -86,4 +124,9 @@ app.post('/createSimpleAppointment', (request, response) =>{
     googleapi.createEvent(event, 'entkh4b3cordgtdslbclill8a8@group.calendar.google.com');
         
 
+});
+
+// Route for deleting patient
+app.delete('/deletePatient', (request, response) => {
+  db.deletePatient(request, response);
 });
