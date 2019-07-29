@@ -8,7 +8,7 @@
 
 // jQuery global function
 $(document).ready( () => {
-
+    
     // function to load all patients to be selected for appointment creation
     $.ajax({
         type: 'POST',
@@ -22,9 +22,8 @@ $(document).ready( () => {
         url: 'http://' + document.domain + ':8010/getAllDoctorsNamesSorted',
         success: populateDoctors
     });
+    
 
-    
-    
     // On click function add new patient
     $("#submitNewPatient").click(() => { 
         
