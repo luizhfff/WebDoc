@@ -91,6 +91,24 @@ $(document).ready( () => {
         });
     });
 
+    //Creating new exam appointment using google api
+    $("#createExamAppointment").click(() => {
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://' + document.domain + ':8010/createExamAppointment',
+            data: {
+                patientID: $('#appointmentExamPatient').val(),
+                doctorID: $('#appointmentExamDoctor').val(),
+                appointmentDate: $('#appointmentExamDate').val(),
+                startTimeHour: $('#appointmentExamTimeStartHour').val(),
+                startTimeMinute: $('#appointmentExamTimeStartMinute').val(),
+                endTimeHour: $('#appointmentExamTimeEndHour').val(),
+                endTimeMinute: $('#appointmentExamTimeEndMinute').val()
+            }
+        });
+    });
+
     function display(dataRequested) {
                 
         let data = JSON.parse(dataRequested);
@@ -131,6 +149,7 @@ $(document).ready( () => {
 
         $.each(data, (key, row) => {
             $("#appointmentPatient").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname}</option>`);
+            $("#appointmentExamPatient").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname}</option>`);
         });
 
     }
@@ -140,6 +159,7 @@ $(document).ready( () => {
 
         $.each(data, (key, row) => {
             $("#appointmentDoctor").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname} | ${row.Speciality}</option>`);
+            $("#appointmentExamDoctor").append(`<option value='${row.Fname} ${row.Lname}'> ${row.Fname} ${row.Lname} | ${row.Speciality}</option>`);
         });
 
     }

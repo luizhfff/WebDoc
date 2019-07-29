@@ -28,7 +28,7 @@ var event = {
       {'method': 'popup', 'minutes': 10},
     ]
   }
-}
+};
 
 var calendarID = "";
 
@@ -36,17 +36,18 @@ function createEvent(eventPassed, calendarIDPassed) {
   event = eventPassed;
   calendarID = calendarIDPassed;
   
-  readCredentialsAndCallBack();
+  readCredentialsAndCallBack(insertEvent);
+  //readCredentialsAndCallBack(listEvents);
 }
 
 
 // Load client secrets from a local file.
-function readCredentialsAndCallBack() {
+function readCredentialsAndCallBack(callback) {
   fs.readFile('./js/credentials.json', (err, content) => {
     if (err)
       return console.log('Error loading client secret file:', err);
     // Authorize a client with credentials, then call the Google Calendar API.
-    authorize(JSON.parse(content), insertEvent);
+    authorize(JSON.parse(content), callback);
   });
 }
 
@@ -107,7 +108,7 @@ function getAccessToken(oAuth2Client, callback) {
 function listEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
   calendar.events.list({
-    calendarId: 'primary',
+    calendarId: 'entkh4b3cordgtdslbclill8a8@group.calendar.google.com',
     timeMin: (new Date()).toISOString(),
     maxResults: 10,
     singleEvents: true,
@@ -141,9 +142,35 @@ function insertEvent(auth) {
       console.log('There was an error contacting the Calendar service: ' + err);
       return;
     }
-    console.log(`Event created successfuly! | CalendarID: ${calendarID} | Event: ${event.summary}`);
+    console.log(`Event created successfuly! | CalendarID: ${calendarID}`);
   });
+  clearVariables();
 
+}
+
+// Helper method to clear variables after creating event
+function clearVariables() {
+  event = {
+    'summary': '',
+    'location': 'Vancouver',
+    'description': 'Medical Appointment',
+    'start': {
+      'date': '',
+      'timeZone': 'Canada/Pacific',
+    },
+    'end': {
+        'date': '',
+        'timeZone': 'Canada/Pacific',
+    },
+    'reminders': {
+      'useDefault': false,
+      'overrides': [
+        {'method': 'email', 'minutes': 24 * 60},
+        {'method': 'popup', 'minutes': 10},
+      ]
+    }
+  };
+  calendarID = "";
 }
 
 exports.createEvent = createEvent;

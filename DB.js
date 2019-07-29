@@ -9,7 +9,7 @@
 const mysql = require('mysql');
 
 // Creating DB connection
-var pool = mysql.createPool({
+const pool = mysql.createPool({
     connectionLimit : 100,
     host: 'gfsolucoesti.com.br',
     user: 'gfsol916_doc_db',
@@ -82,7 +82,7 @@ function deletePatient(request, response) {
     pool.query(query, patientID, (error, results) => {
         if (error) throw error;
         //console.log(results);
-        console.log('Row inserted:' + results.affectedRows);
+        console.log('Row deleted:' + results.affectedRows);
         response.send(JSON.stringify(results));
     });
     //connection.end();
