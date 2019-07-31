@@ -1,6 +1,46 @@
 
 $(document).ready(() => {
-   $("#appointmentsChart").insertFusionCharts({
+  
+  $.ajax({
+      type: 'POST',
+      url: 'http://' + document.domain + ':8010/getMale',
+      success: proccessMales
+  });
+
+  $.ajax({
+    type: 'POST',
+    url: 'http://' + document.domain + ':8010/getFemale',
+    success: proccessFemales
+  });
+
+  
+
+  function proccessMales(dataFromServer) {
+    let data = JSON.parse(dataFromServer);
+
+
+    $.each(data, (key, theRow) => {
+      console.log(key + " , " + theRow); 
+      
+                 
+             
+    });
+  }
+
+  function proccessFemales(dataFromServer) {
+    let data = JSON.parse(dataFromServer);
+
+
+    $.each(data, (key, theRow) => {
+      console.log(key + " , " + theRow); 
+      
+                 
+             
+    });
+  }
+  
+  
+  $("#appointmentsChart").insertFusionCharts({
         type: "column2d",
         width: "1200",
         height: "600",

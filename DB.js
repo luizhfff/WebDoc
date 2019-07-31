@@ -29,6 +29,26 @@ function getAllPatientsNamesSorted(request, response) {
     //connection.end();
 }
 
+//Get male
+function getMalePatients(request, response) {
+    pool.query(`SELECT * FROM Patients WHERE Gender='M'`, (error, results) => {
+        if (error) throw error;
+        //console.log(JSON.stringify(results));
+        response.send(JSON.stringify(results));
+    });
+    //connection.end();
+}
+
+// Get female
+function getFemalePatients(request, response) {
+    pool.query(`SELECT * FROM Patients WHERE Gender='F'`, (error, results) => {
+        if (error) throw error;
+        //console.log(JSON.stringify(results));
+        response.send(JSON.stringify(results));
+    });
+    //connection.end();
+}
+
 // Method to request data from DB
 function getAllDoctorsNamesSorted(request, response) {
     pool.query('SELECT ID, Fname, Lname, Speciality FROM Physicians ORDER BY Fname, Lname, Speciality ASC', (error, results) => {
@@ -41,6 +61,7 @@ function getAllDoctorsNamesSorted(request, response) {
 
 // Method to register a new patient on DB
 function newPatient(request, response) {
+    
     let values = [];
     let data = [];
     values.push(request.body.fname);
@@ -94,4 +115,6 @@ exports.newPatient = newPatient;
 exports.searchByID = searchByID;
 exports.getAllDoctorsNamesSorted = getAllDoctorsNamesSorted;
 exports.deletePatient = deletePatient;
+exports.getMalePatients = getMalePatients;
+exports.getFemalePatients = getFemalePatients;
 

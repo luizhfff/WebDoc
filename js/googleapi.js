@@ -32,12 +32,22 @@ var event = {
 
 var calendarID = "";
 
+var appointmentsListGlobal = {};
+var examsListGlobal = {};
+
 function createEvent(eventPassed, calendarIDPassed) {
   event = eventPassed;
   calendarID = calendarIDPassed;
   
   readCredentialsAndCallBack(insertEvent);
-  //readCredentialsAndCallBack(listEvents);
+}
+
+function listAppointments() {
+  readCredentialsAndCallBack(listEventsAppointments);
+}
+
+function listExams() {
+  readCredentialsAndCallBack(listEventsExams);
 }
 
 
@@ -120,14 +130,50 @@ function listEvents(auth) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
         const start = event.start.dateTime || event.start.date;
-        console.log(`${start} - ${event.summary}`);
+        console.log(`${event.summary}`);
       });
     } else {
       console.log('No upcoming events found.');
     }
   });
+
+
 }
 
+/**
+ * Lists th events on the appointments calendar.
+ * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+ */
+async function listEventsAppointments(auth) {
+
+  const calendar = google.calendar({version: 'v3', auth});
+  const res = await calendar.events.list({
+    calendarId: 'entkh4b3cordgtdslbclill8a8@group.calendar.google.com',
+    timeMin: (new Date()).toISOString(),
+    singleEvents: true,
+    orderBy: 'startTime',
+  });
+  appointmentsListGlobal = res.data;
+  console.log(res.data)
+
+}
+
+/**
+ * Lists th events on the exams calendar.
+ * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+ */
+async function listEventsExams(auth) {
+
+  const calendar = google.calendar({version: 'v3', auth});
+  const res = await calendar.events.list({
+    calendarId: 'v30ich54n69vrq8t2h3lc5sfmk@group.calendar.google.com',
+    timeMin: (new Date()).toISOString(),
+    singleEvents: true,
+    orderBy: 'startTime',
+  });
+  examsListGlobal = res.data;
+  console.log(res.data)
+}
 
 // Function for creating event
 function insertEvent(auth) {
@@ -174,3 +220,7 @@ function clearVariables() {
 }
 
 exports.createEvent = createEvent;
+exports.listExams = listExams;
+exports.listAppointments = listAppointments;
+exports.appointmentsListGlobal = appointmentsListGlobal;
+exports.examsListGlobal = examsListGlobal;
