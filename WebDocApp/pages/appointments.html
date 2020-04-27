@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>WebDoc | Calendar</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/webDocLogo2.png">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body id="calendarPage">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="medica-load"></div>
+        <img src="../img/core-img/plus.png" alt="logo">
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area gradient-background">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="h-100 d-md-flex justify-content-between align-items-center">
+                            <div class="top-header-social-info">
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="top-header-menu">
+                                <nav class="top-menu">
+                                    <form action="/logout" method="get">
+                                        <button class="btn btn-light" type="submit">Logout</button>
+                                    </form>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 h-100">
+                        <div class="main-menu h-100">
+                            <nav class="navbar h-100 navbar-expand-lg">
+                                <!-- Logo Area  -->
+                                <a class="navbar-brand" href="index.html"><img src="../img/core-img/webDocLogo2.png" alt="Logo"></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medicaMenu" aria-controls="medicaMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+
+                                <div class="collapse navbar-collapse" id="medicaMenu">
+                                    <!-- Menu Area -->
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="chart.html">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="patients.html">Patients</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="physicians.html">Physicians</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="appointments.html">Appointments</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="exams.html">Exams</a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <section class="breadcumb-area bg-img gradient-background-overlay" style="background-image: url(../img/bg-img/hero4.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <!-- Title -->
+                        <h3 class="breadcumb-title">Calendar</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container align-items-center section_padding_50">
+        <div class="col-12 row">
+            <div class="col-4">
+                <div id="newAppointment">
+                        <h3>Create New Appointment</h3>
+                        <div class="form-group">
+                            <label for="appointmentPatient">Patient</label>
+                            <select class="custom-select" id="appointmentPatient">
+                                <option selected>Choose Patient...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDoctor">Doctor</label>
+                            <select class="custom-select" id="appointmentDoctor">
+                                <option selected>Choose Doctor...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class='input-group date'>
+                                <label class="col-12" for="appointmentDate">Appointment Date</label>
+                                <input type='date' class="form-control col-12" id="appointmentDate" placeholder="YYYY-MM-DD">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-12" for="appointmentTimeStart">Start Time</label>
+                                <select class="custom-select col-4" id="appointmentTimeStartHour">
+                                    <option selected>Hour...</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                </select>
+
+                                <select class="custom-select col-4" id="appointmentTimeStartMinute">
+                                    <option selected>Minute...</option>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-12" for="appointmentTimeEnd">End Time</label>
+                                <select class="custom-select col-4" id="appointmentTimeEndHour">
+                                    <option selected>Hour...</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                </select>
+
+                               <select class="custom-select col-4" id="appointmentTimeEndMinute">
+                                    <option selected>Minute...</option>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" id="createAppointment" name="createAppointment">Create New Appointment</button>
+                        </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div id="showCalendar">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23A79B8E&amp;ctz=America%2FVancouver&amp;showTitle=0&amp;showNav=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=1&amp;mode=MONTH&amp;src=ZW50a2g0YjNjb3JkZ3Rkc2xiY2xpbGw4YThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area section_padding_5 bg-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area">
+                            <div class="footer-logo">
+                                <img src="../img/core-img/webDocLogo2_light.png" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="bottom-footer-content h-100 d-md-flex align-items-center justify-content-between">
+                            <!-- Copywrite Text -->
+                            <div class="copywrite-text">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
+    <!-- Popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+    
+    <!-- Scripts js -->
+    <script src="../js/appointments.js"></script>
+
+</body>
+
+</html>

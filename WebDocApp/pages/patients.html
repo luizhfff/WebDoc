@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>WebDoc | Patients</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/webDocLogo2.png">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="medica-load"></div>
+        <img src="../img/core-img/plus.png" alt="logo">
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area gradient-background">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="h-100 d-md-flex justify-content-between align-items-center">
+                            <div class="top-header-social-info">
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="top-header-menu">
+                                <nav class="top-menu">
+                                    <form action="/logout" method="get">
+                                        <button class="btn btn-light" type="submit">Logout</button>
+                                    </form>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 h-100">
+                        <div class="main-menu h-100">
+                            <nav class="navbar h-100 navbar-expand-lg">
+                                <!-- Logo Area  -->
+                                <a class="navbar-brand" href="index.html"><img src="../img/core-img/webDocLogo2.png" alt="Logo"></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medicaMenu" aria-controls="medicaMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+
+                                <div class="collapse navbar-collapse" id="medicaMenu">
+                                    <!-- Menu Area -->
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="chart.html">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="patients.html">Patients</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="physicians.html">Physicians</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="appointments.html">Appointments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="exams.html">Exams</a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <section class="breadcumb-area bg-img gradient-background-overlay" style="background-image: url(../img/bg-img/hero3.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <!-- Title -->
+                        <h3 class="breadcumb-title">Patients</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="medica-services-area section_padding_50 row">
+        <div class="container">
+            <div class="col-12">
+
+                <div id="patientAlert">
+                    <div id="patientAlertInside"></div>
+                </div>
+                
+                <!-- Button trigger modal Search for Patient-->
+                <div class="col-4 mb-5">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletePatientModal">Delete Patient</button>
+                </div>
+
+                <!-- Button trigger modal Add new patient -->
+                <div class="col-4 mb-5">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#regNewPatientModal">Register New Patient</button>
+                </div>
+
+                <div class="col-12">
+                    <table class="table" id="patientsTable">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Delete patient Modal -->
+    <div class="modal fade" id="deletePatientModal" tabindex="-1" role="dialog" aria-labelledby="deletePatientModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePatientModal">Delete Patient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="patientDeleteModalAlert">
+                    <div id="patientDeleteModalAlertInside"></div>
+                </div>
+                <div class="form-group">
+                    <label for="deleteID">Patient ID</label>
+                    <input type="number" name="deleteID" id="deleteID" class="form-control" placeholder="ID" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" id="deletePatient" name="deletePatient">Delete Patient</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Add patient Modal -->
+    <div class="modal fade" id="regNewPatientModal" tabindex="-1" role="dialog" aria-labelledby="regNewPatientModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="regNewPatientModal">Add New Patient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="patientAddModalAlert">
+                    <div id="patientAddModalAlertInside"></div>
+                </div>
+                <div id="addPatient">
+                    <div class="form-group">
+                      <label for="fname">First Name</label>
+                      <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="lname">Last Name</label>
+                      <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="gender">Gender</label>
+                        <select name="gender" id="gender" class="form-control" required>
+                            <option disabled selected value></option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="age">Age</label>
+                      <input type="number" name="age" id="age" class="form-control" placeholder="Ex.: 19" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" id="submitNewPatient" name="submitNewPatient">Add Patient</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area section_padding_5 bg-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area">
+                            <div class="footer-logo">
+                                <img src="../img/core-img/webDocLogo2_light.png" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="bottom-footer-content h-100 d-md-flex align-items-center justify-content-between">
+                            <!-- Copywrite Text -->
+                            <div class="copywrite-text">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
+    <!-- Popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+    <!-- DataTables Plugins js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <!-- Scripts js -->
+    <script src="../js/patients.js"></script>
+
+</body>
+
+</html>
