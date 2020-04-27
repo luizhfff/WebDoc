@@ -32,7 +32,7 @@ const fs = require("fs");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
-const db = require('./DB');
+const db = require('./js/DB');
 const googleapi = require("./js/googleapi");
 
 // Using passport module
@@ -72,7 +72,7 @@ mongoose
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-app.set('views',__dirname);
+app.set('views', __dirname + '/views');
 
 
 // Creating User schema using mongoose
@@ -232,7 +232,7 @@ app.post('/login', (req, res, next) => {
     req.logIn(user, (err) => {
       app.use(express.static(__dirname));
       if (err) { return next(err); }
-      return res.redirect('/chart.html');
+      return res.redirect('pages/chart.html');
     });
   })(req,res,next);
 });
