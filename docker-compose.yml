@@ -12,7 +12,8 @@ services:
       - ./WebDocApp:/mnt/webdoc
     restart: on-failure
     networks:
-      - webdoc-net
+      - lhfffnet
 
 networks:
   webdoc-net:
+    name: lhfffnet
