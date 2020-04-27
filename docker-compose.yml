@@ -4,9 +4,9 @@
 version: '3'
 services:
   # NodeJS Express APP
-  backend:
+  webdoc:
     build: docker
-    container_name: webdocapp
+    container_name: webdoc
     working_dir: /mnt/webdoc
     volumes:
       - ./WebDocApp:/mnt/webdoc
