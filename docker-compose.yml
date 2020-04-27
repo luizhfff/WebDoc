@@ -1,0 +1,18 @@
+###############################################################################
+#                          DOCKER COMPOSE FILE                                #
+###############################################################################
+version: '3'
+services:
+  # NodeJS Express APP
+  backend:
+    build: docker
+    container_name: webdocapp
+    working_dir: /mnt/webdoc
+    volumes:
+      - ./WebDocApp:/mnt/webdoc
+    restart: on-failure
+    networks:
+      - webdoc-net
+
+networks:
+  webdoc-net:
