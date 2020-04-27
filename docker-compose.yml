@@ -12,8 +12,9 @@ services:
       - ./WebDocApp:/mnt/webdoc
     restart: on-failure
     networks:
-      - lhfffnet
+      - default
 
 networks:
-  webdoc-net:
-    name: lhfffnet
+  default:
+    external:
+      name: lhfffnet
