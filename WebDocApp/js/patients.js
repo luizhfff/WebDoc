@@ -2,7 +2,7 @@ $(document).ready( () => {
     // function to load all patients to be selected for appointment creation
     $.ajax({
         type: 'POST',
-        url: 'http://' + document.domain + ':8010/getAllPatientsNamesSorted',
+        url: 'https://' + document.domain + '/getAllPatientsNamesSorted',
         success: populatePatients
     });
 
@@ -16,7 +16,7 @@ $(document).ready( () => {
 
             $.ajax({
                 type: 'POST',
-                url: 'http://' + document.domain + ':8010/submitNewPatient',
+                url: 'https://' + document.domain + '/submitNewPatient',
                 data: {
                     fname: $('#fname').val(),
                     lname: $('#lname').val(),
@@ -42,7 +42,7 @@ $(document).ready( () => {
 
             $.ajax({
                 type: 'DELETE',
-                url: 'http://' + document.domain + ':8010/deletePatient',
+                url: 'https://' + document.domain + '/deletePatient',
                 data: {
                     patientID: $('#deleteID').val(),
                 },

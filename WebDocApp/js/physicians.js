@@ -3,7 +3,7 @@ $(document).ready( () => {
     // function to load all doctor to be selected for appointment creation
     $.ajax({
         type: 'POST',
-        url: 'http://' + document.domain + ':8010/getAllDoctorsNamesSorted',
+        url: 'https://' + document.domain + '/getAllDoctorsNamesSorted',
         success: populateDoctors
     });
     

@@ -3,13 +3,13 @@ $(document).ready(() => {
   
   $.ajax({
       type: 'POST',
-      url: 'http://' + document.domain + ':8010/getMale',
+      url: 'https://' + document.domain + '/getMale',
       success: proccessMales
   });
 
   $.ajax({
     type: 'POST',
-    url: 'http://' + document.domain + ':8010/getFemale',
+    url: 'https://' + document.domain + '/getFemale',
     success: proccessFemales
   });
 

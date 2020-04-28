@@ -2,14 +2,14 @@ $(document).ready( () => {
     
     $.ajax({
         type: 'POST',
-        url: 'http://' + document.domain + ':8010/getAllPatientsNamesSorted',
+        url: 'https://' + document.domain + '/getAllPatientsNamesSorted',
         success: populateSelectionPatients
     });
 
     // function to load all doctor to be selected for appointment creation
     $.ajax({
         type: 'POST',
-        url: 'http://' + document.domain + ':8010/getAllDoctorsNamesSorted',
+        url: 'https://' + document.domain + '/getAllDoctorsNamesSorted',
         success: populateSelectionDoctors
     });
     
@@ -18,7 +18,7 @@ $(document).ready( () => {
 
         $.ajax({
             type: 'POST',
-            url: 'http://' + document.domain + ':8010/createSimpleAppointment',
+            url: 'https://' + document.domain + '/createSimpleAppointment',
             data: {
                 patientID: $('#appointmentPatient').val(),
                 doctorID: $('#appointmentDoctor').val(),
